@@ -58,6 +58,8 @@ jobs:
         run : | 
           docker network inspect my-bridge-network 
           docker container ls
+          docker exec api1 env
+          docker exec api2 env
       - name: Run Cypress Test
         uses: cypress-io/github-action@v4
         with:
