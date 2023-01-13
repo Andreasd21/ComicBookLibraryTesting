@@ -53,6 +53,11 @@ jobs:
         run: |
           $Response = Invoke-WebRequest -URI http://localhost:8081/api/Users
           $Response.Content
+
+      - name: checks
+        run : | 
+          docker network inspect my-bridge-network 
+          docker container ls
       - name: Run Cypress Test
         uses: cypress-io/github-action@v4
         with:
